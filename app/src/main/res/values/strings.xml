@@ -1,0 +1,40 @@
+<resources>
+
+
+    <string name="hello_world">Hello world!</string>
+
+
+        <string name="app_name">Material Design</string>
+        <string name="action_settings">Settings</string>
+        <string name="action_search">Search</string>
+        <string name="drawer_open">Open</string>
+        <string name="drawer_close">Close</string>
+
+        <string name="nav_item_home">Ftour</string>
+        <string name="nav_item_friends">Programme</string>
+        <string name="nav_item_notifications">Quiz</string>
+    <string name="title_activity_quiz">Quiz Questions</string>
+    <string name="question">Question 1. How is the first president of Nigeria?</string>
+    <string name="answer_one">King Ade</string>
+    <string name="answer_two"> olu Obasanjo</string>
+    <string name="answer_three">Jona Goodluck</string>
+    <string name="answer_four"> Atiku Abubakar</string>
+    <string name="next_questions"> Next Question</string>
+    <string name="previous_questions"> Previous Question</string>
+    <string name="facebook_app_id">1500522956927479</string>
+        <!-- navigation drawer item labels  -->
+        <string-array name="nav_drawer_labels">
+            <item>@string/nav_item_home</item>
+            <item>@string/nav_item_friends</item>
+            <item>Intervenant</item>
+            <item>@string/nav_item_notifications</item>
+
+            <item>Media</item>
+            <item>Contact</item>
+        </string-array>
+
+        <string name="title_messages">Quiz</string>
+        <string name="title_friends">Programme</string>
+        <string name="title_home">Ftour</string>
+
+</resources>

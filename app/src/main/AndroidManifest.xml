@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mouadr.fs"
+    >
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <application
+        android:allowBackup="true"
+
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/MyMaterialTheme" >
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:label="@string/app_name">
+        </activity>
+
+
+        <provider android:authorities="com.facebook.app.FacebookContentProvider1500522956927479"
+            android:name="com.facebook.FacebookContentProvider"
+            android:exported="true"
+           >
+        </provider>
+        <activity
+            android:name=".Authentfication.LoginActivity"
+
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="8dbd422da9aa57ce40b38bebcb2dff48aa6b083d" />
+    </application>
+
+</manifest>
