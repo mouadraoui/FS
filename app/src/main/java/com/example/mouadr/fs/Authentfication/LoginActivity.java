@@ -20,11 +20,15 @@ import com.example.mouadr.fs.Authentfication.library.DatabaseHandler;
 import com.example.mouadr.fs.Authentfication.library.UserFunctions;
 import com.example.mouadr.fs.MainActivity;
 import com.example.mouadr.fs.R;
+import com.facebook.AccessToken;
+import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookAuthorizationException;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.twitter.sdk.android.Twitter;
@@ -55,7 +59,7 @@ public class LoginActivity extends Activity {
 	EditText inputEmail;
 	EditText inputPassword;
 	private TwitterLoginButton loginButton;
-	int i=0,j=0;
+	int i=0,j;
 
 	TextView loginErrorMsg;
 	private CallbackManager callbackManager;
@@ -88,7 +92,7 @@ public class LoginActivity extends Activity {
 		btnLogin = (Button) findViewById(R.id.btnLogin);
 		btnLinkToRegister = (Button) findViewById(R.id.btnLinkToRegisterScreen);
 		loginErrorMsg = (TextView) findViewById(R.id.login_error);
-		//btnface=(Button)findViewById(R.id.facebook);
+		btnface=(Button)findViewById(R.id.facebook);
 		loginButton = (TwitterLoginButton) findViewById(R.id.twitter_login_button);
 	loginButton.setCallback(new Callback<TwitterSession>() {
 
@@ -117,6 +121,7 @@ public class LoginActivity extends Activity {
 		btnface.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				j=1;
 				FacebookSdk.sdkInitialize(getApplicationContext());
 				callbackManager = CallbackManager.Factory.create();
 
@@ -128,21 +133,49 @@ public class LoginActivity extends Activity {
 
 				loginManager.logInWithPublishPermissions(LoginActivity.this, permissionNeeds);
 				loginManager.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-
+					private ProfileTracker mProfileTracker;
 					@Override
 					public void onSuccess(LoginResult loginResult) {
+						if(Profile.getCurrentProfile() == null) {
+							mProfileTracker = new ProfileTracker() {
+								@Override
+								protected void onCurrentProfileChanged(Profile profile, Profile profile2) {
+									// profile2 is the new profile
+									Log.v("facebook - profile", profile2.getFirstName());
+									email=profile2.getFirstName();
+									birthday=profile2.getLastName();
+									Toast.makeText(getApplicationContext(),"Bonjour " +email+" "+birthday,Toast.LENGTH_LONG).show();
+									Intent i=new Intent(getApplicationContext(),MainActivity.class);
+									i.putExtra("first",email);
+									i.putExtra("last", birthday);
+									//i.putExtra("fbortwi", "facebook");
+									Toast.makeText(getApplicationContext(),"Mouad",Toast.LENGTH_LONG).show();
+									i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+									startActivity(i);
+									mProfileTracker.stopTracking();
+								}
+							};
+							mProfileTracker.startTracking();
+						}
+						else {
+							Profile profile = Profile.getCurrentProfile();
 
 
-						Profile profile = Profile.getCurrentProfile();
-						email=profile.getFirstName();
-						birthday=profile.getLastName();
-						Toast.makeText(getApplicationContext(),"Bonjour " +email+" "+birthday,Toast.LENGTH_LONG).show();
-						Intent i=new Intent(getApplicationContext(),MainActivity.class);
-						i.putExtra("first",email);
-						i.putExtra("last",birthday);
-						//i.putExtra("fbortwi", "facebook");
-						i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						startActivity(i);
+							//get data here
+							profile = Profile.getCurrentProfile();
+							email=profile.getFirstName();
+							birthday=profile.getLastName();
+							Toast.makeText(getApplicationContext(),"Bonjour " +email+" "+birthday,Toast.LENGTH_LONG).show();
+							Intent i=new Intent(getApplicationContext(),MainActivity.class);
+							i.putExtra("first",email);
+							i.putExtra("last", birthday);
+							//i.putExtra("fbortwi", "facebook");
+							Toast.makeText(getApplicationContext(),"Mouad",Toast.LENGTH_LONG).show();
+							i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							startActivity(i);
+						}
+
+
 					}
 
 					@Override
@@ -152,7 +185,13 @@ public class LoginActivity extends Activity {
 
 					@Override
 					public void onError(FacebookException exception) {
-						System.out.println("onError");
+
+						if (exception instanceof FacebookAuthorizationException) {
+							if (AccessToken.getCurrentAccessToken() != null) {
+								LoginManager.getInstance().logOut();
+							}
+						}
+						System.out.println(exception);
 					}
 				});
 			}
@@ -224,9 +263,17 @@ public class LoginActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 
 			//	callbackManager.onActivityResult(requestCode, resultCode, data);
+				if(j==1){
+					callbackManager.onActivityResult(requestCode,resultCode,data);
+					j=0;
+				}
 
-			loginButton.onActivityResult(requestCode,resultCode,data);
-			callbackManager.onActivityResult(requestCode,requestCode,data);
+
+			else{
+				loginButton.onActivityResult(requestCode,resultCode,data);
+
+			}
+
 
 
 

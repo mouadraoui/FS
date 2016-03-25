@@ -23,7 +23,7 @@
            >
         </provider>
         <activity
-            android:name=".Authentfication.LoginActivity"
+            android:name=".View.TransitionActivity1"
 
             android:label="@string/app_name" >
             <intent-filter>

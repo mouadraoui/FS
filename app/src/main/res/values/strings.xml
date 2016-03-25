@@ -32,9 +32,13 @@
             <item>Media</item>
             <item>Contact</item>
         </string-array>
-
+    <string name="medium_text">Porchetta landjaeger tail meatball t-bone spare ribs. Sirloin pork chop bacon pork belly strip steak. Porchetta ham meatball pig salami short ribs jowl spare ribs sirloin tongue jerky cupim chuck.</string>
+    <string name="square_blue_name">square_blue</string>
+    <string name="square_green_name">square_green</string>
         <string name="title_messages">Quiz</string>
         <string name="title_friends">Programme</string>
         <string name="title_home">Ftour</string>
+    <string name="sample_blue_title">sample_blue_title</string>
+
 
 </resources>

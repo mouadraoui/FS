@@ -37,7 +37,7 @@ public class FtourFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_ftour, container, false);
-        ButterKnife.bind(this,rootView);
+       /* ButterKnife.bind(this,rootView);
 
         MediaController mediaControllerr = new MediaController(getActivity());
         //mediaControllerr.setMediaPlayer(mediaController);
@@ -47,7 +47,7 @@ public class FtourFragment extends Fragment {
         ve.setMediaController(mediaControllerr);
         ve.setVideoURI(uri);
 
-        ve.start();
+        ve.start();*/
         // Inflate the layout for this fragment
         return rootView;
     }

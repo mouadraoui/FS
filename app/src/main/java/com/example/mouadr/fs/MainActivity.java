@@ -1,6 +1,9 @@
 package com.example.mouadr.fs;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,12 +11,18 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.mouadr.fs.Authentfication.LoginActivity;
+import com.facebook.login.LoginManager;
+
+import java.util.logging.Logger;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -136,4 +145,59 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
             getSupportActionBar().setTitle(title);
         }
     }
-}
+
+
+    @Override
+    public void onBackPressed() {
+      //  super.onBackPressed();
+        AlertDialog.Builder builder=new AlertDialog.Builder(MainActivity.this);
+        // builder.setCancelable(false);
+        builder.setTitle("Deconnexion");
+        builder.setMessage("vous voulez se deconnecter");
+        builder.setPositiveButton("oui", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Toast.makeText(MainActivity.this, "Yes i wanna exit", Toast.LENGTH_LONG).show();
+                LoginManager.getInstance().logOut();
+                Intent i=new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
+        builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+                Toast.makeText(MainActivity.this, "i wanna stay on this page", Toast.LENGTH_LONG).show();
+                dialog.cancel();
+
+            }
+        });
+   /*     builder.setNeutralButton("Rate", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // TODO Auto-generated method stub
+
+                final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
+                }
+
+            }
+        });*/
+        AlertDialog alert=builder.create();
+        alert.show();
+        //super.onBackPressed();
+
+
+
+       }
+
+
+        }
