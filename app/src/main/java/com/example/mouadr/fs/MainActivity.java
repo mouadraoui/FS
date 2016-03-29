@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mouadr.fs.Authentfication.LoginActivity;
+import com.example.mouadr.fs.View.MainView;
 import com.facebook.login.LoginManager;
 
 import java.util.logging.Logger;
@@ -50,7 +51,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         drawerFragment = (FragmentDrawer)
                 getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
          TextView t=(TextView)findViewById(R.id.username);
-      //  ImageButton img=(ImageButton)findViewById()
+      //  ImageButton img=(ImageButton)findViewByIrd()
 
         Bundle extras = getIntent().getExtras();
 
@@ -99,9 +100,13 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         displayView(position);
     }
 
-    @OnClick(R.id.faceclick)
+    @OnClick(R.id.share)
     public void Test(){
-        Toast.makeText(getApplicationContext(),"Mouad",Toast.LENGTH_LONG).show();
+/*        Toast.makeText(getApplicationContext(),"Mouad",Toast.LENGTH_LONG).show();
+       displayView(4);*/
+       // displayView(-1);
+       Intent i=new Intent(getApplicationContext(),MainView.class);
+        startActivity(i);
     }
     private void displayView(int position) {
         Fragment fragment = null;
@@ -176,25 +181,9 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
 
             }
         });
-   /*     builder.setNeutralButton("Rate", new DialogInterface.OnClickListener() {
 
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
-
-                final String appPackageName = getPackageName(); // getPackageName() from Context or Activity object
-                try {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + getPackageName())));
-                } catch (android.content.ActivityNotFoundException anfe) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + getPackageName())));
-                }
-
-            }
-        });*/
         AlertDialog alert=builder.create();
         alert.show();
-        //super.onBackPressed();
-
 
 
        }

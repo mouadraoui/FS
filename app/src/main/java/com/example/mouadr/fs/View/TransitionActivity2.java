@@ -7,6 +7,7 @@ import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
 
+
 import com.example.mouadr.fs.R;
 import com.example.mouadr.fs.databinding.ActivityTransition2Binding;
 

@@ -11,6 +11,7 @@
         android:theme="@style/MyMaterialTheme" >
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <activity android:name="com.facebook.FacebookActivity"
+            android:screenOrientation="portrait"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:label="@string/app_name">
@@ -23,7 +24,7 @@
            >
         </provider>
         <activity
-            android:name=".View.TransitionActivity1"
+            android:name=".Authentfication.LoginActivity"
 
             android:label="@string/app_name" >
             <intent-filter>
@@ -33,6 +34,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".View.TransitionActivity1"></activity>
+        <activity android:name=".View.TransitionActivity2"></activity>
+        <activity android:name=".View.TwitterTransition"></activity>
+        <activity android:name=".View.MainView"></activity>
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="8dbd422da9aa57ce40b38bebcb2dff48aa6b083d" />

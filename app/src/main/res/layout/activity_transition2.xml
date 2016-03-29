@@ -43,6 +43,7 @@
             android:id="@+id/activity_title"
             style="@style/Base.TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
+            android:layout_marginLeft="120dp"
             android:layout_height="wrap_content"
             android:text="Explode" />
 

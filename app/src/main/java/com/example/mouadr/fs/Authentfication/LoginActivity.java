@@ -77,6 +77,7 @@ public class LoginActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+		FacebookSdk.sdkInitialize(getApplicationContext());
 		Fabric.with(this, new Twitter(authConfig));
 
 		setContentView(R.layout.login);
@@ -122,7 +123,7 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				j=1;
-				FacebookSdk.sdkInitialize(getApplicationContext());
+				LoginManager.getInstance().logOut();
 				callbackManager = CallbackManager.Factory.create();
 
 				List<String> permissionNeeds = Arrays.asList("publish_actions", "publish_stream");

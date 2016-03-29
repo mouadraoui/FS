@@ -1,16 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="info.androidhive.materialdesign.activity.HomeFragment">
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/MaterialAnimations.TextAppearance.Title"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="#1a1a1a"
+        android:background="#35465c"
         android:elevation="@dimen/elevation_header">
 
         <TextView
@@ -18,15 +18,16 @@
             style="@style/MaterialAnimations.TextAppearance.Title.Inverse"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="280dp"
-            android:textColor="#f08226"
-            android:text="Ftour" />
+
+            android:layout_gravity="center_vertical|start"
+            android:text="Share" />
 
     </android.support.v7.widget.Toolbar>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/sample_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
 
-
-
-
-
-</RelativeLayout>
+</LinearLayout>

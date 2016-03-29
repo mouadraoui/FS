@@ -42,6 +42,8 @@ public class SamplesRecyclerAdapter extends RecyclerView.Adapter<SamplesRecycler
                     case 0:
                         transitionToActivity(TransitionActivity1.class, sample);
                         break;
+                    case 1:
+                        transitionToActivity(TwitterTransition.class,sample);
 
                 }
             }
