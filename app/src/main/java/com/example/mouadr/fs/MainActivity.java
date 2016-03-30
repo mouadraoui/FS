@@ -100,14 +100,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
         displayView(position);
     }
 
-    @OnClick(R.id.share)
-    public void Test(){
-/*        Toast.makeText(getApplicationContext(),"Mouad",Toast.LENGTH_LONG).show();
-       displayView(4);*/
-       // displayView(-1);
-       Intent i=new Intent(getApplicationContext(),MainView.class);
-        startActivity(i);
-    }
+
     private void displayView(int position) {
         Fragment fragment = null;
         String title = getString(R.string.app_name);
@@ -122,7 +115,7 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 break;
             case 2:
                 fragment=new IntervenantFragment();
-                title="Intervenant";
+                title="INTERVENANTS";
                 break;
             case 3:
                 fragment = new QuizFragment();
@@ -130,11 +123,11 @@ public class MainActivity extends ActionBarActivity implements FragmentDrawer.Fr
                 break;
             case 4:
                 fragment=new MediaFragment();
-                title="Media";
+                title="MEDIAS";
                 break;
             case 5:
                 fragment =new CantactFragment();
-                title="Cantact";
+                title="CONTACT";
                 break;
             default:
                 break;

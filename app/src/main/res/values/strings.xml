@@ -10,9 +10,9 @@
         <string name="drawer_open">Open</string>
         <string name="drawer_close">Close</string>
 
-        <string name="nav_item_home">Ftour</string>
-        <string name="nav_item_friends">Programme</string>
-        <string name="nav_item_notifications">Quiz</string>
+        <string name="nav_item_home">FTOUR2.0</string>
+        <string name="nav_item_friends">PROGRAMME</string>
+        <string name="nav_item_notifications">QUIZ</string>
     <string name="title_activity_quiz">Quiz Questions</string>
     <string name="question">Question 1. How is the first president of Nigeria?</string>
     <string name="answer_one">King Ade</string>
@@ -26,18 +26,38 @@
         <string-array name="nav_drawer_labels">
             <item>@string/nav_item_home</item>
             <item>@string/nav_item_friends</item>
-            <item>Intervenant</item>
+            <item>INTERVENANTS</item>
             <item>@string/nav_item_notifications</item>
 
-            <item>Media</item>
-            <item>Contact</item>
+            <item>MEDIAS</item>
+            <item>CONTACT</item>
         </string-array>
+
+    <integer-array name="image">
+
+        <item>@drawable/iconftour</item>
+        <item>@drawable/iconprog</item>
+        <item>@drawable/iconinter</item>
+        <item>@drawable/iconquiz</item>
+        <item>@drawable/iconmedia</item>
+        <item>@drawable/iconphone</item>
+
+    </integer-array>
+    <string-array name="img">
+
+        <item>@drawable/iconftour</item>
+        <item>@drawable/iconprog</item>
+        <item>@drawable/iconinter</item>
+        <item>@drawable/iconquiz</item>
+        <item>@drawable/iconmedia</item>
+        <item>@drawable/iconphone</item>
+    </string-array>
     <string name="medium_text">Porchetta landjaeger tail meatball t-bone spare ribs. Sirloin pork chop bacon pork belly strip steak. Porchetta ham meatball pig salami short ribs jowl spare ribs sirloin tongue jerky cupim chuck.</string>
     <string name="square_blue_name">square_blue</string>
     <string name="square_green_name">square_green</string>
         <string name="title_messages">Quiz</string>
         <string name="title_friends">Programme</string>
-        <string name="title_home">Ftour</string>
+        <string name="title_home">FTOUR2.0</string>
     <string name="sample_blue_title">sample_blue_title</string>
 
 

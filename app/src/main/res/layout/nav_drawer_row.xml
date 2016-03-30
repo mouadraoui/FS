@@ -2,16 +2,33 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:clickable="true">
+    android:clickable="true"
+
+  >
 
     <TextView
         android:id="@+id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="30dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:textSize="20dp"
+        android:paddingTop="18dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:paddingBottom="13dp"
+        android:textSize="17dp"
+        android:layout_marginBottom="30dp"
+        android:text="FTOUR"
+        android:layout_marginLeft="50dp"
         android:textStyle="bold" />
+<ImageView
+    android:id="@+id/imgicon"
 
+
+    android:paddingTop="25dp"
+    android:paddingBottom="15dp"
+    android:layout_width="70dp"
+    android:layout_height="70dp"
+    android:layout_alignLeft="@+id/title"
+
+    android:layout_alignParentLeft="true"/>
 </RelativeLayout>
