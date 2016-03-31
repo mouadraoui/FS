@@ -31,6 +31,10 @@
     <color name="sample_yellow">#ff8800</color>
     <color name="instagram">#3f729b</color>
 
+
+    <color name="swarm_red">#e6522e</color>
+    <color name="swarm_blue">#00b5cf</color>
+    <color name="swarm_cream">#fcf5e6</color>
     <!-- theme colors -->
     <color name="theme_blue_background">#84ffff</color>
     <color name="theme_blue_primary">#4FC3F7</color>
